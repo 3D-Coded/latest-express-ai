@@ -9,9 +9,14 @@ import { run } from "@openai/agents";
 import { additiveExpert } from "./agents/additiveExpert.js";
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
-app.use(cors());
+const corsOptions = {
+  origin: process.env.FRONTEND_URL || "http://localhost:3000",
+  optionsSuccessStatus: 200, // For legacy browser support
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.post("/aistream", async (req, res) => {
