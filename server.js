@@ -12,7 +12,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || "http://localhost:3000",
+  origin: process.env.FRONTEND_URL,
   optionsSuccessStatus: 200, // For legacy browser support
 };
 
