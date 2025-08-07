@@ -34,6 +34,10 @@ app.post("/aistream", async (req, res) => {
   }
 
   try {
+    const printerLinks = await scrape(
+      "https://3dgbire.com/collections/3d-printers"
+    );
+
     const conversationText = messages
       .map((msg) => {
         const speaker = msg.role === "user" ? "User" : "Assistant";
@@ -41,7 +45,11 @@ app.post("/aistream", async (req, res) => {
       })
       .join("\n");
 
-    const fullPrompt = `${conversationText}\nAssistant:`;
+    const linksText = printerLinks
+      .map((link, i) => `${i + 1}. ${link}`)
+      .join("\n");
+
+    const fullPrompt = `Here are some 3D printer product links to refer to:\n${linksText}\n\n${conversationText}\nAssistant:`;
 
     const result = await run(additiveExpert, fullPrompt, { stream: true });
     const stream = result.toTextStream(); // Web stream
