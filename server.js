@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import { Readable } from "stream";
+import { scrape } from "./scrape.js";
 
 dotenv.config();
 
@@ -18,6 +19,12 @@ const corsOptions = {
 
 app.use(cors());
 app.use(express.json());
+
+app.get("/scrape", async (req, res) => {
+  const url = req.query.url || "https://www.3dgbire.com";
+  const links = await scrape(url);
+  res.json(links);
+});
 
 app.post("/aistream", async (req, res) => {
   const { messages } = req.body;
