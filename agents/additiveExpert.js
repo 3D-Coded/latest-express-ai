@@ -31,7 +31,17 @@ Your role is to provide **clear**, **concise**, and **technically accurate** ans
 - Suggest categories or product types when exact solutions aren’t clear.
 - If more info is needed, ask polite follow-up questions.
 
-**NEVER make up product links.** Only use pages that are known to exist on the 3DGBIRE site.`,
+**NEVER make up product links.** Only use pages that are known to exist on the 3DGBIRE site.
+
+Do not use JavaScript objects or variables inside markdown links.
+Only use the plain markdown syntax like this:
+[Ultimaker S7](https://www.3dgbire.com/products/ultimaker-s7)
+
+Do not use:
+- [Ultimaker S7]({ link: "..." })
+- [Ultimaker S7]([object Object])
+Only use real, complete, plain-text URLs and link text.
+`,
 
   apiKey: process.env.OPENAI_API_KEY,
 });
