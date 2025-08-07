@@ -33,7 +33,7 @@ Your role is to provide **clear**, **concise**, and **technically accurate** ans
 - "Check out the [Ultimaker S7](https://www.3dgbire.com/products/ultimaker-s7) for high-performance dual extrusion."
 
 ❌ Do not link to any of the following:
-- `*.myshopify.com` domains (e.g. https://3dgbire-new-website.myshopify.com/...)
+- '.myshopify.com' domains (e.g. https://3dgbire-new-website.myshopify.com/...)
 - Staging sites (e.g. localhost, test servers)
 - Placeholder or malformed URLs (e.g. [object Object], undefined)
 
